@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "sillyname": "^0.1.0",
-    "superheroes": "^3.0.0"
+    "superheroes": "^4.0.0",
+    "inquirer": "^14.0.2",
+    "qr-image": "^3.2.0"
   }
 }
