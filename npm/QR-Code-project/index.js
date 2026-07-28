@@ -22,8 +22,8 @@ inquirer
   })
   .catch(error => {
     if (error.isTtyError) {
-      // prompt couldn't be rendered int he current environment
+      console.log("prompt couldn't be rendered int he current environment")
     } else {
-      // Something else went wrong
+      console.error("Something else went wrong", error)
     }
   })
