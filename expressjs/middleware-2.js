@@ -4,10 +4,21 @@ import morgan from "morgan"
 const app = express()
 const port = 3000
 
-app.use(morgan("combined"))
+function custom_function(req, res, next) {
+  console.log("_" * 15)
+  console.log("Req method:", req.method + ". Req url:", req.url)
+  next()
+}
+
+
+app.use(custom_function)
 
 app.get("/", (req, res) => {
-  console.log("Hey from the server")
+  res.send("<h1>Hello World</h1>");
+})
+
+app.post("/submit", (req, res) => {
+  res.send(req.body)
 })
 
 app.listen(port, () => {
@@ -15,4 +26,12 @@ app.listen(port, () => {
 })
 
 
-// MORGAN MIDDLEWARE
+
+// app.use(morgan("combined"))
+// app.use((req, res, next) => {
+//   console.log("Request  method:", req.method)
+//   next()
+// })
+
+// app.use(express.json())
+// app.use(express.urlencoded({ extended: true }))
