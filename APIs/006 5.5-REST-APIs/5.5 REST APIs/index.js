@@ -97,3 +97,28 @@ app.post("/delete-secret", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
+
+
+
+/* 
+INSTEAD OF THIS FORM:
+const mySecret = req.body.secret
+const myScore = req.body.score
+
+const result = await axios.post(API_URL + "/secrets",
+  {
+    "secret": mySecret,
+    "score": myScore
+  }, config)
+
+WE COULD HAVE WROTE THIS:
+
+const result = await axios.post(
+  API_URL + "/secrets", 
+  req.body, 
+  config)
+  [...]
+
+*/
